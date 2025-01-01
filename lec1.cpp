@@ -2,69 +2,302 @@
 #include<string>
 using namespace std;
 
-//Example 12
-// Custom Copy constructor
-class Teacher {
-private:
-    double salary;
-    
+//Example 17
+//Deep copy (we use it at the time of dynamic memory allocation)
+//we are trying to do Dynamic memory allocation (memory allocation at runtime time) (in heap memory)
+class Student {
 public:
-    //constructor(non parameterized constructor)
-    Teacher() {
-        dept = "Computerr Science";
-    }
-
-    Teacher(string name, string subject, string dept, double salary) {
-        this->name = name;  
-        this->subject = subject;
-        this->dept = dept;
-        this->salary = salary;
-    }
-
-    //Custom copy constructor
-    Teacher(Teacher &originalObject) { //pass by reference
-        this->name = originalObject.name;
-        this->subject = originalObject.subject;
-        this->dept = originalObject.dept;
-        this->salary = originalObject.salary;
-
-    }
-
-    //properties
     string name;
-    string subject;
-    string dept;
+    double* cgpaPtr;
 
-    //methods/ member functions
-    void changeDept(string newDept) {
-        dept = newDept;
+    //parameterized constructor
+    Student(string name, double cgpa) {
+        this->name = name;
+        this->cgpaPtr = new double;
+        *(this->cgpaPtr) = cgpa;
     }
-    void setSalary(double newSalary) {
-        salary = newSalary;
+
+    //custom copy constructor
+    Student(Student &originalObject) {
+        this->name = originalObject.name;
+        this->cgpaPtr = new double;
+        *(this->cgpaPtr) = *(originalObject.cgpaPtr);
     }
-    double getSalary() {
-        return salary;
-    }
+
     void getInfo() {
-        cout<<"Name: "<<name<<endl;
-        cout<<"Subject: "<<subject<<endl;
+        cout<<"name: "<<name<<endl;
+        cout<<"cgpa: "<<*cgpaPtr<<endl;
     }
 };
 
 int main()
 {
-    Teacher t1("Dishant", "C++", "ComputerScience", 50000);
-    cout<<"Object t1 : "<<endl;
-    t1.getInfo();
-    cout<<endl;
+    Student s1("rahul kumar", 8.9);
+    Student s2(s1); //custom copy constructor invoked
+    
+    cout<<"Object s1 details : "<<endl;
+    s1.getInfo();
 
-    Teacher t2(t1); // Custom copy constructor invoked/called
-    cout<<"Object t2 : "<<endl;
-    t2.getInfo();
-    cout<<endl;
+    cout<<"Object s2 details : "<<endl;
+    s2.getInfo();
+
+    //abb koi problem nhi hogi because of deep copy
+    s2.name = "neha kumari";
+    *(s2.cgpaPtr) = 9.9;
+
+    cout<<"After changing object s2 details"<<endl;
+    cout<<"Object s1 details : "<<endl;
+    s1.getInfo();
+    cout<<"Object s2 details : "<<endl;
+    s2.getInfo();
 
     return 0;
 }
+
+
+
+// //Example 16
+// //Shallow copy
+// //we are trying to do Dynamic memory allocation (memory allocation at runtime time) (in heap memory)
+// class Student {
+// public:
+//     string name;
+//     double* cgpaPtr;
+
+//     //parameterized constructor
+//     Student(string name, double cgpa) {
+//         this->name = name;
+//         this->cgpaPtr = new double;
+//         *(this->cgpaPtr) = cgpa;
+//     }
+
+//     //custom copy constructor
+//     Student(Student &originalObject) {
+//         this->name = originalObject.name;
+//         this->cgpaPtr = originalObject.cgpaPtr;
+//     }
+
+//     void getInfo() {
+//         cout<<"name: "<<name<<endl;
+//         cout<<"cgpa: "<<*cgpaPtr<<endl;
+//     }
+// };
+
+// int main()
+// {
+//     Student s1("rahul kumar", 8.9);
+//     Student s2(s1); //custom copy constructor invoked
+    
+//     cout<<"Object s1 details : "<<endl;
+//     s1.getInfo();
+
+//     cout<<"Object s2 details : "<<endl;
+//     s2.getInfo();
+
+//     //problem yaha sai shuru hogi abb
+//     *(s2.cgpaPtr) = 9.9;
+
+//     cout<<"After changing object s2 details"<<endl;
+//     cout<<"Object s1 details : "<<endl;
+//     s1.getInfo();
+
+//     return 0;
+// }
+
+
+
+// //Example 15
+// //Shallow copy
+// //we are trying to do Dynamic memory allocation (memory allocation at runtime time) (in heap memory)
+// class Student {
+// public:
+//     string name;
+//     double* cgpaPtr;
+
+//     //parameterized constructor
+//     Student(string name, double cgpa) {
+//         this->name = name;
+//         this->cgpaPtr = new double;
+//         *(this->cgpaPtr) = cgpa;
+//     }
+
+//     //custom copy constructor
+//     Student(Student &originalObject) {
+//         this->name = originalObject.name;
+//         this->cgpaPtr = originalObject.cgpaPtr;
+//     }
+
+//     void getInfo() {
+//         cout<<"name: "<<name<<endl;
+//         cout<<"cgpa: "<<*cgpaPtr<<endl;
+//     }
+// };
+
+// int main()
+// {
+//     Student s1("rahul kumar", 8.9);
+//     Student s2(s1); //custom copy constructor invoked
+    
+//     cout<<"Object s1 details : "<<endl;
+//     s1.getInfo();
+
+//     cout<<"Object s2 details : "<<endl;
+//     s2.getInfo();
+
+//     return 0;
+// }
+
+
+
+// //Example 14
+// //Shallow copy
+// //by Default static memory allocation (memory allocation at compile time only) (in stack memory)
+// class Student {
+// public:
+//     string name;
+//     double cgpa;
+
+//     //parameterized constructor
+//     Student(string name, double cgpa) {
+//         this->name = name;
+//         this->cgpa = cgpa;
+//     }
+
+//     //custom copy constructor
+//     Student(Student &originalObject) {
+//         this->name = originalObject.name;
+//         this->cgpa = originalObject.cgpa;
+//     }
+
+//     void getInfo() {
+//         cout<<"name: "<<name<<endl;
+//         cout<<"cgpa: "<<cgpa<<endl;
+//     }
+// };
+
+// int main()
+// {
+//     Student s1("rahul kumar", 8.9);
+//     Student s2(s1); //custom copy constructor invoked
+    
+//     cout<<"Object s1 details : "<<endl;
+//     s1.getInfo();
+
+//     cout<<"Object s2 details : "<<endl;
+//     s2.name = "neha kumari";
+//     s2.cgpa = 9.9;
+//     s2.getInfo();
+
+//     return 0;
+// }
+
+
+
+// //Example 13
+// //Shallow copy (exact same to same copy bann jaati hai)
+// //static memory allocation (memory allocation at compile time only) (in stack memory)
+// class Student {
+// public:
+//     string name;
+//     double cgpa;
+
+//     //parameterized constructor
+//     Student(string name, double cgpa) {
+//         this->name = name;
+//         this->cgpa = cgpa;
+//     }
+
+//     //custom copy constructor
+//     Student(Student &originalObject) {
+//         this->name = originalObject.name;
+//         this->cgpa = originalObject.cgpa;
+//     }
+
+//     void getInfo() {
+//         cout<<"name: "<<name<<endl;
+//         cout<<"cgpa: "<<cgpa<<endl;
+//     }
+// };
+
+// int main()
+// {
+//     Student s1("rahul kumar", 8.9);
+//     Student s2(s1); //custom copy constructor invoked
+    
+//     cout<<"Object s1 details : "<<endl;
+//     s1.getInfo();
+
+//     cout<<"Object s2 details : "<<endl;
+//     s2.getInfo();
+
+//     return 0;
+// }
+
+
+
+// //Example 12
+// // Custom Copy constructor
+// class Teacher {
+// private:
+//     double salary;
+    
+// public:
+//     //constructor(non parameterized constructor)
+//     Teacher() {
+//         dept = "Computerr Science";
+//     }
+
+//     Teacher(string name, string subject, string dept, double salary) {
+//         this->name = name;  
+//         this->subject = subject;
+//         this->dept = dept;
+//         this->salary = salary;
+//     }
+
+//     //Custom copy constructor
+//     Teacher(Teacher &originalObject) { //pass by reference
+//         this->name = originalObject.name;
+//         this->subject = originalObject.subject;
+//         this->dept = originalObject.dept;
+//         this->salary = originalObject.salary;
+
+//     }
+
+//     //properties
+//     string name;
+//     string subject;
+//     string dept;
+
+//     //methods/ member functions
+//     void changeDept(string newDept) {
+//         dept = newDept;
+//     }
+//     void setSalary(double newSalary) {
+//         salary = newSalary;
+//     }
+//     double getSalary() {
+//         return salary;
+//     }
+//     void getInfo() {
+//         cout<<"Name: "<<name<<endl;
+//         cout<<"Subject: "<<subject<<endl;
+//     }
+// };
+
+// int main()
+// {
+//     Teacher t1("Dishant", "C++", "ComputerScience", 50000);
+//     cout<<"Object t1 : "<<endl;
+//     t1.getInfo();
+//     cout<<endl;
+
+//     Teacher t2(t1); // Custom copy constructor invoked/called
+//     cout<<"Object t2 : "<<endl;
+//     t2.getInfo();
+//     cout<<endl;
+
+//     return 0;
+// }
 
 
 
