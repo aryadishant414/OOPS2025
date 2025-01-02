@@ -2,9 +2,9 @@
 #include<string>
 using namespace std;
 
-//Example 17
-//Deep copy (we use it at the time of dynamic memory allocation)
-//we are trying to do Dynamic memory allocation (memory allocation at runtime time) (in heap memory)
+// //Example 20
+// // Destructor
+// // iss example mai ye bataya hai ki sabse pehle object s2 ka destructor call hoga then object s1 ka
 class Student {
 public:
     string name;
@@ -24,6 +24,11 @@ public:
         *(this->cgpaPtr) = *(originalObject.cgpaPtr);
     }
 
+    ~Student() {
+        cout<<"Hii i am Destructor and i deleted everything\n";
+        delete cgpaPtr; // ese hoti hai object ki dynamic allocated memory deallocate 
+    }
+
     void getInfo() {
         cout<<"name: "<<name<<endl;
         cout<<"cgpa: "<<*cgpaPtr<<endl;
@@ -33,26 +38,148 @@ public:
 int main()
 {
     Student s1("rahul kumar", 8.9);
-    Student s2(s1); //custom copy constructor invoked
-    
-    cout<<"Object s1 details : "<<endl;
+    s1.getInfo();
     s1.getInfo();
 
-    cout<<"Object s2 details : "<<endl;
-    s2.getInfo();
-
-    //abb koi problem nhi hogi because of deep copy
-    s2.name = "neha kumari";
-    *(s2.cgpaPtr) = 9.9;
-
-    cout<<"After changing object s2 details"<<endl;
-    cout<<"Object s1 details : "<<endl;
-    s1.getInfo();
-    cout<<"Object s2 details : "<<endl;
+    Student s2(s1);
     s2.getInfo();
 
     return 0;
 }
+
+
+
+//Example 19
+// Destructor
+// iss example mai ye bataya hai ki sabse pehle object s2 ka destructor call hoga then object s1 ka
+// class Student {
+// public:
+//     string name;
+//     double* cgpaPtr;
+
+//     //parameterized constructor
+//     Student(string name, double cgpa) {
+//         this->name = name;
+//         this->cgpaPtr = new double;
+//         *(this->cgpaPtr) = cgpa;
+//     }
+
+//     //custom copy constructor
+//     Student(Student &originalObject) {
+//         this->name = originalObject.name;
+//         this->cgpaPtr = new double;
+//         *(this->cgpaPtr) = *(originalObject.cgpaPtr);
+//     }
+
+//     ~Student() {
+//         cout<<"Hii i am Destructor and i deleted everything\n";
+//     }
+
+//     void getInfo() {
+//         cout<<"name: "<<name<<endl;
+//         cout<<"cgpa: "<<*cgpaPtr<<endl;
+//     }
+// };
+
+// int main()
+// {
+//     Student s1("rahul kumar", 8.9);
+//     s1.getInfo();
+//     s1.getInfo();
+
+//     Student s2(s1);
+//     s2.getInfo();
+
+//     return 0;
+// }
+
+
+
+// //Example 18
+// // Destructor
+// class Student {
+// public:
+//     string name;
+//     double* cgpaPtr;
+
+//     //parameterized constructor
+//     Student(string name, double cgpa) {
+//         this->name = name;
+//         this->cgpaPtr = new double;
+//         *(this->cgpaPtr) = cgpa;
+//     }
+
+//     ~Student() {
+//         cout<<"Hii i am Destructor and i deleted everything\n";
+//     }
+
+//     void getInfo() {
+//         cout<<"name: "<<name<<endl;
+//         cout<<"cgpa: "<<*cgpaPtr<<endl;
+//     }
+// };
+
+// int main()
+// {
+//     Student s1("rahul kumar", 8.9);
+//     s1.getInfo();
+
+//     return 0;
+// }
+
+
+
+// //Example 17
+// //Deep copy (we use it at the time of dynamic memory allocation)
+// //we are trying to do Dynamic memory allocation (memory allocation at runtime time) (in heap memory)
+// class Student {
+// public:
+//     string name;
+//     double* cgpaPtr;
+
+//     //parameterized constructor
+//     Student(string name, double cgpa) {
+//         this->name = name;
+//         this->cgpaPtr = new double;
+//         *(this->cgpaPtr) = cgpa;
+//     }
+
+//     //custom copy constructor
+//     Student(Student &originalObject) {
+//         this->name = originalObject.name;
+//         this->cgpaPtr = new double;
+//         *(this->cgpaPtr) = *(originalObject.cgpaPtr);
+//     }
+
+//     void getInfo() {
+//         cout<<"name: "<<name<<endl;
+//         cout<<"cgpa: "<<*cgpaPtr<<endl;
+//     }
+// };
+
+// int main()
+// {
+//     Student s1("rahul kumar", 8.9);
+//     Student s2(s1); //custom copy constructor invoked
+    
+//     cout<<"Object s1 details : "<<endl;
+//     s1.getInfo();
+
+//     cout<<"Object s2 details : "<<endl;
+//     s2.getInfo();
+
+//     //abb koi problem nhi hogi because of deep copy
+//     s2.name = "neha kumari";
+//     *(s2.cgpaPtr) = 9.9;
+
+//     cout<<"After changing object s2 details"<<endl;
+//     cout<<"Object s1 details : "<<endl;
+//     s1.getInfo();
+//     cout<<"Object s2 details : "<<endl;
+//     s2.getInfo();
+
+//     return 0;
+// }
 
 
 
