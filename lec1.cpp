@@ -2,50 +2,321 @@
 #include<string>
 using namespace std;
 
-// //Example 20
-// // Destructor
-// // iss example mai ye bataya hai ki sabse pehle object s2 ka destructor call hoga then object s1 ka
+// Example 26
+// Multiple inheritance
 class Student {
 public:
     string name;
-    double* cgpaPtr;
-
-    //parameterized constructor
-    Student(string name, double cgpa) {
-        this->name = name;
-        this->cgpaPtr = new double;
-        *(this->cgpaPtr) = cgpa;
-    }
-
-    //custom copy constructor
-    Student(Student &originalObject) {
-        this->name = originalObject.name;
-        this->cgpaPtr = new double;
-        *(this->cgpaPtr) = *(originalObject.cgpaPtr);
-    }
-
-    ~Student() {
-        cout<<"Hii i am Destructor and i deleted everything\n";
-        delete cgpaPtr; // ese hoti hai object ki dynamic allocated memory deallocate 
-    }
-
-    void getInfo() {
-        cout<<"name: "<<name<<endl;
-        cout<<"cgpa: "<<*cgpaPtr<<endl;
-    }
+    int rollno;
 };
 
-int main()
-{
-    Student s1("rahul kumar", 8.9);
-    s1.getInfo();
-    s1.getInfo();
+class Teacher {
+public:
+    string subject;
+    double salary;
+};
 
-    Student s2(s1);
-    s2.getInfo();
+class TA: public Student, public Teacher {
 
-    return 0;
+};
+
+int main() {
+    TA t1;
+    t1.name="tony stark";
+    t1.subject="engineering";
+
+    cout<<t1.name<<endl;
+    cout<<t1.subject<<endl;
 }
+
+
+// // Example 25
+// // Multi-level inheritance example
+// class Person {
+// public:
+//     string name;
+//     int age;
+// };
+
+// class Student : public Person {
+// public:
+//     int rollno;
+// };
+
+// class GradStudent: public Student {
+// public:
+//     string researchTopic;
+// };
+
+// int main() {
+//     GradStudent s1;
+//     s1.name = "rahul kumar";
+//     s1.researchTopic = "quantum physics";
+
+//     cout<<"name : "<<s1.name<<endl;
+//     cout<<"Research Topic : "<<s1.researchTopic<<endl;
+// }
+
+
+// // Example 24
+// // Inheritance
+// // private mode of inheritance example
+// class Person {  //parent/base class
+// public:
+//     string name;
+//     int age;
+
+//     //custom default Destructor
+//     ~Person() {
+//         cout<<"parent class destructor called"<<endl;
+//     }
+
+//     // parameterized constructor
+//     Person(string name, int age) {
+//         cout<<"parent class constructor called"<<endl;
+//         this->name = name;
+//         this->age = age;
+//     }
+
+// };
+
+// class Student: private Person {  //child/derived class
+//     //name, age, rollno ye tinn properties bana rhe hai ham doo too parent sai le lenge and ekk hamm bana rhe hai
+// public:
+//     int rollno;
+
+//     Student(string name, int age, int rollno): Person(name, age) {
+//         cout<<"child class constructor called"<<endl;
+//         this->rollno = rollno;
+//     }
+
+
+//     //custom default destrutor
+//     ~Student() {
+//         cout<<"child class destructor called"<<endl;
+//     }
+
+//     void getInfo() {
+//         cout<<"name : "<<name<<endl;
+//         cout<<"age : "<<age<<endl;
+//         cout<<"rollno : "<<rollno<<endl;
+//     }
+// };
+
+// int main() {
+//     Student s1("rahul kumar", 21, 9116);
+//     cout<<"name is : "<<s1.name<<endl;
+    
+//     return 0;
+// }
+
+
+
+// // Example 23
+// // Inheritance
+// class Person {  //parent/base class
+// public:
+//     string name;
+//     int age;
+
+//     //custom default Destructor
+//     ~Person() {
+//         cout<<"parent class destructor called"<<endl;
+//     }
+
+//     // parameterized constructor
+//     Person(string name, int age) {
+//         cout<<"parent class constructor called"<<endl;
+//         this->name = name;
+//         this->age = age;
+//     }
+
+// };
+
+// class Student: public Person {  //child/derived class
+//     //name, age, rollno ye tinn properties bana rhe hai ham doo too parent sai le lenge and ekk hamm bana rhe hai
+// public:
+//     int rollno;
+
+//     Student(string name, int age, int rollno): Person(name, age) {
+//         cout<<"child class constructor called"<<endl;
+//         this->rollno = rollno;
+//     }
+
+
+//     //custom default destrutor
+//     ~Student() {
+//         cout<<"child class destructor called"<<endl;
+//     }
+
+//     void getInfo() {
+//         cout<<"name : "<<name<<endl;
+//         cout<<"age : "<<age<<endl;
+//         cout<<"rollno : "<<rollno<<endl;
+//     }
+// };
+
+// int main() {
+//     Student s1("rahul kumar", 21, 9116);
+//     cout<<"name is : "<<s1.name<<endl;
+    
+//     return 0;
+// }
+
+
+
+// // Example 22
+// // Inheritance
+// single level inheritance ka example bhi yehi hai
+// class Person {  //parent/base class
+// public:
+//     string name;
+//     int age;
+
+//     //custom default Destructor
+//     ~Person() {
+//         cout<<"parent class destructor called"<<endl;
+//     }
+
+//     // parameterized constructor
+//     Person(string name, int age) {
+//         cout<<"parent class constructor called"<<endl;
+//         this->name = name;
+//         this->age = age;
+//     }
+
+// };
+
+// class Student: public Person {  //child/derived class
+//     //name, age, rollno ye tinn properties bana rhe hai ham doo too parent sai le lenge and ekk hamm bana rhe hai
+// public:
+//     int rollno;
+
+//     Student(string name, int age, int rollno): Person(name, age) {
+//         cout<<"child class constructor called"<<endl;
+//         this->rollno = rollno;
+//     }
+
+
+//     //custom default destrutor
+//     ~Student() {
+//         cout<<"child class destructor called"<<endl;
+//     }
+
+//     void getInfo() {
+//         cout<<"name : "<<name<<endl;
+//         cout<<"age : "<<age<<endl;
+//         cout<<"rollno : "<<rollno<<endl;
+//     }
+// };
+
+// int main() {
+//     Student s1("rahul kumar", 21, 9116);
+//     s1.getInfo();
+    
+//     return 0;
+// }
+
+
+
+// // Example 21
+// // Inheritance
+// class Person {  //parent/base class
+// public:
+//     string name;
+//     int age;
+
+//     //custom default constructor
+//     Person() {
+//         cout<<"parent class constructor called"<<endl;
+//     }
+
+//     //custom default Destructor
+//     ~Person() {
+//         cout<<"parent class destructor called"<<endl;
+//     }
+
+// };
+
+// class Student : public Person {  //child/derived class
+//     //name, age, rollno ye tinn properties bana rhe hai ham doo too parent sai le lenge and ekk hamm bana rhe hai
+// public:
+//     int rollno;
+
+//     //custom default constructor
+//     Student() {
+//         cout<<"child class constructor called"<<endl;
+//     }
+
+//     //custom default destrutor
+//     ~Student() {
+//         cout<<"child class destructor called"<<endl;
+//     }
+
+//     void getInfo() {
+//         cout<<"name : "<<name<<endl;
+//         cout<<"age : "<<age<<endl;
+//         cout<<"rollno : "<<rollno<<endl;
+//     }
+// };
+
+// int main() {
+//     Student s1;
+//     s1.name = "rahul kumar";
+//     s1.age = 21;
+//     s1.rollno = 9116;
+
+//     s1.getInfo();
+    
+//     return 0;
+// }
+
+
+
+// //Example 20
+// // Destructor
+// // iss example mai ye bataya hai ki sabse pehle object s2 ka destructor call hoga then object s1 ka
+// class Student {
+// public:
+//     string name;
+//     double* cgpaPtr;
+
+//     //parameterized constructor
+//     Student(string name, double cgpa) {
+//         this->name = name;
+//         this->cgpaPtr = new double;
+//         *(this->cgpaPtr) = cgpa;
+//     }
+
+//     //custom copy constructor
+//     Student(Student &originalObject) {
+//         this->name = originalObject.name;
+//         this->cgpaPtr = new double;
+//         *(this->cgpaPtr) = *(originalObject.cgpaPtr);
+//     }
+
+//     ~Student() {
+//         cout<<"Hii i am Destructor and i deleted everything\n";
+//         delete cgpaPtr; // ese hoti hai object ki dynamic allocated memory deallocate 
+//     }
+
+//     void getInfo() {
+//         cout<<"name: "<<name<<endl;
+//         cout<<"cgpa: "<<*cgpaPtr<<endl;
+//     }
+// };
+
+// int main()
+// {
+//     Student s1("rahul kumar", 8.9);
+//     s1.getInfo();
+//     s1.getInfo();
+
+//     Student s2(s1);
+//     s2.getInfo();
+
+//     return 0;
+// }
 
 
 
