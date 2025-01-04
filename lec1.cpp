@@ -2,32 +2,65 @@
 #include<string>
 using namespace std;
 
-// Example 26
-// Multiple inheritance
-class Student {
+// Example 27
+// Hierarchial inheritance
+// Single parent and its properties are accessible by multiple childrens
+class Person {
 public:
     string name;
+    int age;
+};
+
+class Student : public Person{
+public:
     int rollno;
 };
 
-class Teacher {
+class Teacher: public Person {
 public:
     string subject;
-    double salary;
-};
-
-class TA: public Student, public Teacher {
-
 };
 
 int main() {
-    TA t1;
-    t1.name="tony stark";
-    t1.subject="engineering";
 
-    cout<<t1.name<<endl;
-    cout<<t1.subject<<endl;
+    Student s1;
+    s1.name = "rahul kumar";
+
+    Teacher t1;
+    t1.name = "YSR sir";
+
+    cout<<"Student s1 name is : "<<s1.name<<endl;
+    cout<<"Teachet t1 name is : "<<t1.name<<endl;
+
 }
+
+
+// // Example 26
+// // Multiple inheritance
+// class Student {
+// public:
+//     string name;
+//     int rollno;
+// };
+
+// class Teacher {
+// public:
+//     string subject;
+//     double salary;
+// };
+
+// class TA: public Student, public Teacher {
+
+// };
+
+// int main() {
+//     TA t1;
+//     t1.name="tony stark";
+//     t1.subject="engineering";
+
+//     cout<<t1.name<<endl;
+//     cout<<t1.subject<<endl;
+// }
 
 
 // // Example 25
