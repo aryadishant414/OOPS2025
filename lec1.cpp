@@ -2,37 +2,208 @@
 #include<string>
 using namespace std;
 
-// Example 27
-// Hierarchial inheritance
-// Single parent and its properties are accessible by multiple childrens
-class Person {
+// Example 33
+// polymorphism
+// Runtime polymorphism/Dynamic polymorphism
+// virtual functions
+class Parent {
 public:
-    string name;
-    int age;
+    void getInfo() {
+        cout<<"parent class function called"<<endl;
+    }
+
+    virtual void hello() {
+        cout<<"hello from parent"<<endl;
+    }
 };
 
-class Student : public Person{
+class Child : public Parent {
 public:
-    int rollno;
-};
+    void getInfo() {
+        cout<<"child class function called"<<endl;
+    }
 
-class Teacher: public Person {
-public:
-    string subject;
+    void hello() {
+        cout<<"hello from child"<<endl;
+    }
 };
 
 int main() {
+    Parent p1;
+    p1.hello();
 
-    Student s1;
-    s1.name = "rahul kumar";
-
-    Teacher t1;
-    t1.name = "YSR sir";
-
-    cout<<"Student s1 name is : "<<s1.name<<endl;
-    cout<<"Teachet t1 name is : "<<t1.name<<endl;
-
+    return 0;
 }
+
+
+
+// Example 32
+// polymorphism
+// Runtime polymorphism/Dynamic polymorphism
+// virtual functions
+// class Parent {
+// public:
+//     void getInfo() {
+//         cout<<"parent class function called"<<endl;
+//     }
+
+//     virtual void hello() {
+//         cout<<"hello from parent"<<endl;
+//     }
+// };
+
+// class Child : public Parent {
+// public:
+//     void getInfo() {
+//         cout<<"child class function called"<<endl;
+//     }
+
+//     void hello() {
+//         cout<<"hello from child"<<endl;
+//     }
+// };
+
+// int main() {
+//     Child c1;
+//     c1.hello();
+
+//     return 0;
+// }
+
+
+
+// // Example 31
+// // polymorphism
+// // Runtime polymorphism/Dynamic polymorphism
+// // iss example mai koi bhi overriding nhi hogi
+// class Parent {
+// public:
+//     void getInfo() {
+//         cout<<"parent class function called"<<endl;
+//     }
+// };
+
+// class Child : public Parent {
+// public:
+//     void getInfo() {
+//         cout<<"child class function called"<<endl;
+//     }
+// };
+
+// int main() {
+//     Parent p1;
+//     p1.getInfo();
+
+//     return 0;
+// }
+
+
+
+// // Example 30
+// // polymorphism
+// // Runtime polymorphism/Dynamic polymorphism
+// // ex: function overriding
+// // iss example mai parent class ka function override ho jaaega
+// class Parent {
+// public:
+//     void getInfo() {
+//         cout<<"parent class function called"<<endl;
+//     }
+// };
+
+// class Child : public Parent {
+// public:
+//     void getInfo() {
+//         cout<<"child class function called"<<endl;
+//     }
+// };
+
+// int main() {
+//     Child c1;
+//     c1.getInfo();
+
+//     return 0;
+// }
+
+
+// Example 29
+// Polymorphism
+// compile time polymorphism/static polymorphism
+// ex: function overloading
+// class Print {
+// public:
+//     void show(int x) {
+//         cout<<"int : "<<x<<endl;
+//     }
+
+//     void show(char ch) {
+//         cout<<"char : "<<ch<<endl;
+//     }
+// };
+
+// int main() {
+//     Print p1;
+//     p1.show('&');
+
+//     return 0;
+// }
+
+
+
+// // Example 28
+// // Polymorphism
+// // compile time polymorphism
+// // ex: function overloading
+// class Print {
+// public:
+//     void show(int x) {
+//         cout<<"int : "<<x<<endl;
+//     }
+
+//     void show(char ch) {
+//         cout<<"char : "<<ch<<endl;
+//     }
+// };
+
+// int main() {
+//     Print p1;
+//     p1.show(101);
+
+//     return 0;
+// }
+
+
+// // Example 27
+// // Hierarchial inheritance
+// // Single parent and its properties are accessible by multiple childrens
+// class Person {
+// public:
+//     string name;
+//     int age;
+// };
+
+// class Student : public Person{
+// public:
+//     int rollno;
+// };
+
+// class Teacher: public Person {
+// public:
+//     string subject;
+// };
+
+// int main() {
+
+//     Student s1;
+//     s1.name = "rahul kumar";
+
+//     Teacher t1;
+//     t1.name = "YSR sir";
+
+//     cout<<"Student s1 name is : "<<s1.name<<endl;
+//     cout<<"Teachet t1 name is : "<<t1.name<<endl;
+
+// }
 
 
 // // Example 26
