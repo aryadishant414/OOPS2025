@@ -2,38 +2,42 @@
 #include<string>
 using namespace std;
 
-// Example 33
-// polymorphism
-// Runtime polymorphism/Dynamic polymorphism
-// virtual functions
-class Parent {
-public:
-    void getInfo() {
-        cout<<"parent class function called"<<endl;
-    }
+// Example 34
+// Abstraction
 
-    virtual void hello() {
-        cout<<"hello from parent"<<endl;
-    }
-};
 
-class Child : public Parent {
-public:
-    void getInfo() {
-        cout<<"child class function called"<<endl;
-    }
+// // Example 33
+// // polymorphism
+// // Runtime polymorphism/Dynamic polymorphism
+// // virtual functions
+// class Parent {
+// public:
+//     void getInfo() {
+//         cout<<"parent class function called"<<endl;
+//     }
 
-    void hello() {
-        cout<<"hello from child"<<endl;
-    }
-};
+//     virtual void hello() {
+//         cout<<"hello from parent"<<endl;
+//     }
+// };
 
-int main() {
-    Parent p1;
-    p1.hello();
+// class Child : public Parent {
+// public:
+//     void getInfo() {
+//         cout<<"child class function called"<<endl;
+//     }
 
-    return 0;
-}
+//     void hello() {
+//         cout<<"hello from child"<<endl;
+//     }
+// };
+
+// int main() {
+//     Parent p1;
+//     p1.hello();
+
+//     return 0;
+// }
 
 
 
