@@ -2,8 +2,70 @@
 #include<string>
 using namespace std;
 
-// Example 34
+// Example 35
 // Abstraction
+// way to implement abstraction ex: abstract class
+class Shape {  //abstract class / blueprint class for other classes jo isko inherit kregi
+    virtual void draw() = 0; //pure virtual function
+
+    virtual void hey() = 0; // pure virtual function (code tabhi chalega jab hamm inn pure virtual functions ko redefine krenge unn classes mai jo iss blueprint/abstract class ko inherit krr rhi hai)
+};
+
+class Circle : public Shape {
+public:
+    void draw() {
+        cout<<"drawing a circle"<<endl;
+    }
+
+    void hey() {
+        cout<<"hey from circle"<<endl;
+    }
+
+    void hello() {
+        cout<<"Hello jee kya haal chaal"<<endl;
+    }
+};
+
+class Square : public Shape {
+public:
+    void draw() {
+        cout<<"drawing a square"<<endl;
+    }
+
+    void hey() {
+        cout<<"hey from square"<<endl;
+    }
+};
+
+int main() {
+    Circle c1;
+    c1.draw();
+    c1.hello();
+
+    Square s1;
+    s1.draw();
+
+}
+
+
+
+// // Example 34
+// // Abstraction
+// // way to implement abstraction ex: abstract class
+// class Shape {
+//     virtual void draw() = 0; //pure virtual function
+// };
+
+// class Circle {
+// public:
+//     void draw() {
+//         cout<<"drawing a circle"<<endl;
+//     }
+// };
+
+// int main() {
+//     Shape s1;
+// }
 
 
 // // Example 33
