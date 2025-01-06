@@ -2,50 +2,223 @@
 #include<string>
 using namespace std;
 
-// Example 35
-// Abstraction
-// way to implement abstraction ex: abstract class
-class Shape {  //abstract class / blueprint class for other classes jo isko inherit kregi
-    virtual void draw() = 0; //pure virtual function
-
-    virtual void hey() = 0; // pure virtual function (code tabhi chalega jab hamm inn pure virtual functions ko redefine krenge unn classes mai jo iss blueprint/abstract class ko inherit krr rhi hai)
-};
-
-class Circle : public Shape {
+// Example 42
+class ABC {
 public:
-    void draw() {
-        cout<<"drawing a circle"<<endl;
+    ABC() {
+        cout<<"constructor called"<<endl;
     }
 
-    void hey() {
-        cout<<"hey from circle"<<endl;
-    }
-
-    void hello() {
-        cout<<"Hello jee kya haal chaal"<<endl;
-    }
-};
-
-class Square : public Shape {
-public:
-    void draw() {
-        cout<<"drawing a square"<<endl;
-    }
-
-    void hey() {
-        cout<<"hey from square"<<endl;
+    ~ABC() {
+        cout<<"destructor called"<<endl;
     }
 };
 
 int main() {
-    Circle c1;
-    c1.draw();
-    c1.hello();
+    if(true) {
+        static ABC obj;
+    }
 
-    Square s1;
-    s1.draw();
+    cout<<"end of main function"<<endl;
 
+    return 0;
 }
+
+
+
+// // Example 41
+// class ABC {
+// public:
+//     ABC() {
+//         cout<<"constructor called"<<endl;
+//     }
+
+//     ~ABC() {
+//         cout<<"destructor called"<<endl;
+//     }
+// };
+
+// int main() {
+//     if(true) {
+//         ABC obj;
+//     }
+
+//     cout<<"end of main function"<<endl;
+
+//     return 0;
+// }
+
+
+// Example 40
+// Static keyword in classes
+// example with a static keyword in a class
+// class ABC {
+// public:
+//     static int x;
+
+//     void inc() {
+//         x++;
+//     }
+// };
+
+// // Definition of the static variable outside the class
+// int ABC::x = 100;
+
+// int main() {
+//     ABC obj1;
+//     ABC obj2;
+//     cout<<"obj1 x : "<<ABC::x<<endl;
+//     cout<<"obj2 x : "<<ABC::x<<endl;
+    
+//     obj1.inc();
+//     obj2.inc();
+
+//     cout<<"obj1 x : "<<ABC::x<<endl;
+//     cout<<"obj2 x : "<<ABC::x<<endl;
+
+//     return 0;
+// }
+
+
+
+// // Example 39
+// // Static keyword in classes
+// // example with a static keyword in a class
+// // this example will give the error. we write the updated code in example 40
+// class ABC {
+// public:
+//     static int x;
+
+//     void inc() {
+//         x++;
+//     }
+// };
+
+// int main() {
+//     ABC obj1;
+//     ABC obj2;
+//     obj1.x = 100;
+//     obj2.x = 200;
+//     cout<<"obj1 x : "<<obj1.x<<endl;
+//     cout<<"obj2 x : "<<obj2.x<<endl;
+//     obj1.inc();
+//     obj2.inc();
+
+//     cout<<"obj1 x : "<<obj1.x<<endl;
+//     cout<<"obj2 x : "<<obj2.x<<endl;
+
+//     return 0;
+// }
+
+
+
+// // Example 38
+// // Static keyword in classes
+// // example without a static keyword in a class
+// class ABC {
+// public:
+//     int x;
+
+//     void inc() {
+//         x++;
+//     }
+// };
+
+// int main() {
+//     ABC obj1;
+//     ABC obj2;
+//     obj1.x = 100;
+//     obj2.x = 200;
+//     cout<<"obj1 x : "<<obj1.x<<endl;
+//     cout<<"obj2 x : "<<obj2.x<<endl;
+//     obj1.inc();
+//     obj2.inc();
+
+//     cout<<"obj1 x : "<<obj1.x<<endl;
+//     cout<<"obj2 x : "<<obj2.x<<endl;
+
+// }
+
+
+
+// Example 37
+// Static keyword in functions
+// example with a static keyword in function
+// void fun() {
+//     static int x = 0;
+//     cout<<"x : "<<x<<endl;
+//     x++;
+// }
+
+// int main() {
+//     fun();
+//     fun();
+//     fun();
+// }
+
+
+
+// // Example 36
+// // Static keyword in functions
+// // example without a static keyword in function
+// void fun() {
+//     int x = 0;
+//     cout<<"x : "<<x<<endl;
+//     x++;
+// }
+
+// int main() {
+//     fun();
+//     fun();
+//     fun();
+// }
+
+
+
+// // Example 35
+// // Abstraction
+// // way to implement abstraction ex: abstract class
+// class Shape {  //abstract class / blueprint class for other classes jo isko inherit kregi
+//     virtual void draw() = 0; //pure virtual function
+
+//     virtual void hey() = 0; // pure virtual function (code tabhi chalega jab hamm inn pure virtual functions ko redefine krenge unn classes mai jo iss blueprint/abstract class ko inherit krr rhi hai)
+// };
+
+// class Circle : public Shape {
+// public:
+//     void draw() {
+//         cout<<"drawing a circle"<<endl;
+//     }
+
+//     void hey() {
+//         cout<<"hey from circle"<<endl;
+//     }
+
+//     void hello() {
+//         cout<<"Hello jee kya haal chaal"<<endl;
+//     }
+// };
+
+// class Square : public Shape {
+// public:
+//     void draw() {
+//         cout<<"drawing a square"<<endl;
+//     }
+
+//     void hey() {
+//         cout<<"hey from square"<<endl;
+//     }
+// };
+
+// int main() {
+//     Circle c1;
+//     c1.draw();
+//     c1.hello();
+
+//     Square s1;
+//     s1.draw();
+
+// }
 
 
 
