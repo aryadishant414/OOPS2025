@@ -3,6 +3,7 @@
 using namespace std;
 
 // Example 42
+// with static keyword in OBJECTS
 class ABC {
 public:
     ABC() {
@@ -27,6 +28,7 @@ int main() {
 
 
 // // Example 41
+// without static keyword in OBJECTS
 // class ABC {
 // public:
 //     ABC() {
