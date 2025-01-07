@@ -2,7 +2,7 @@
 #include<string>
 using namespace std;
 
-// Example 42
+//Example 42
 // with static keyword in OBJECTS
 class ABC {
 public:
