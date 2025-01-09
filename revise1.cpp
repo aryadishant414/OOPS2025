@@ -29,6 +29,5 @@ int main() {
     cout<<"After dept change the information is : "<<endl;
     cout<<"Teacher name is : "<<t1.name<<endl;
     cout<<"Teacher Department is : "<<t1.dept<<endl;    
-
     return 0;
 }
